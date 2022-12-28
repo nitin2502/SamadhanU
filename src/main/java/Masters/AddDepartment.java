@@ -41,8 +41,6 @@ public class AddDepartment
 		d.get(url);
 		d.manage().window().maximize();
 		System.out.println("Test  running in Chrome");	
-		d.findElement(By.xpath("/html/body/app-root/app-web-layout/div[1]/div/input")).click();
-		Thread.sleep(2000);
 		
 	}
 
@@ -134,14 +132,14 @@ public class AddDepartment
 	d.findElement(By.xpath("/html/body/app-root/app-partial-layout/div/main/div[1]/div/div[2]/app-department-master/div/div/div[1]/table/thead/tr/th[3]/button/span[1]/span")).click();
 	Thread.sleep(1000);
 	d.findElement(By.xpath("//*[@id=\"mat-dialog-0\"]/app-confirmation/div/div/div/div/div[2]/div[2]/div/button[2]/span[1]")).click();
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 		
 	System.out.println("Department deleted sucessfully ");
 	test.pass("Chrome Browser opened");
 	test.log(Status.INFO, "Passed Successfully");
 
 	// log with snapshot
-	test.fail("details", MediaEntityBuilder.createScreenCaptureFromPath("W:\\Testing\\TRTI_Automation\\SamdhanU\\Screenshot\\screenshot.png").build());
+	test.pass("details", MediaEntityBuilder.createScreenCaptureFromPath("W:\\Testing\\TRTI_Automation\\SamdhanU\\Screenshot\\screenshot.png").build());
 
 	// test with snapshot
 	test.addScreenCaptureFromPath("W:\\Testing\\TRTI_Automation\\SamdhanU\\Screenshot\\screenshot.png");

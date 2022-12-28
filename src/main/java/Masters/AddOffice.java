@@ -41,8 +41,7 @@ public class AddOffice
 		d.get(url);
 		d.manage().window().maximize();
 		System.out.println("Test  running in Chrome");	
-		d.findElement(By.xpath("/html/body/app-root/app-web-layout/div[1]/div/input")).click();
-		Thread.sleep(2000);
+		
 		
 	}
 
@@ -81,7 +80,7 @@ public class AddOffice
 	Thread.sleep(1000);
 	d.findElement(By.id("mat-select-2")).click();
 	Thread.sleep(1000);
-	d.findElement(By.id("mat-option-23")).click();
+	d.findElement(By.id("mat-option-29")).click();
 	Thread.sleep(1000);
 	
 	d.findElement(By.xpath("//input[@maxlength='200']")).sendKeys("Forest Department Maharashtra");
@@ -116,13 +115,14 @@ public class AddOffice
 	// test with snapshot
 	test.addScreenCaptureFromPath("screenshot.png");
 
-	}
+	} 
+	
 	@Test(priority=3)
 	public void Editdepartment() throws Exception
 
 	{  ExtentTest test = extent.createTest("Test 3", "Area Details");
-      
-	d.findElement(By.xpath("/html/body/app-root/app-partial-layout/div/main/div[1]/div/div[2]/app-department-master/div/div/div[1]/table/tbody/tr[1]/td[3]/div/button/span[1]/span")).click();
+ 
+	d.findElement(By.xpath("/html/body/app-root/app-partial-layout/div/main/div[1]/div/div[2]/app-office-master/div/div[1]/div/table/tbody/tr[1]/td[4]/button/span[1]/span")).click();
 	Thread.sleep(1000);
 	d.findElement(By.xpath("//input[@maxlength='50']")).clear();
 	Thread.sleep(1000);
@@ -145,16 +145,17 @@ public class AddOffice
 	test.addScreenCaptureFromPath("screenshot.png");
 
 	}
+	
 	@Test(priority=4)
 	public void Deletedepartment() throws Exception
 	{ExtentTest test = extent.createTest("Test 4", "deleting added department ");
 		
-	d.findElement(By.id("mat-checkbox-12")).click();
-	Thread.sleep(1000);
-	d.findElement(By.xpath("/html/body/app-root/app-partial-layout/div/main/div[1]/div/div[2]/app-department-master/div/div/div[1]/table/thead/tr/th[3]/button/span[1]/span")).click();
+       d.findElement(By.id("mat-checkbox-12")).click();
+     Thread.sleep(1000);
+	d.findElement(By.xpath("/html/body/app-root/app-partial-layout/div/main/div[1]/div/div[2]/app-office-master/div/div[1]/div/table/thead/tr/th[4]/button/span[1]/span")).click();
 	Thread.sleep(1000);
 	d.findElement(By.xpath("//*[@id=\"mat-dialog-0\"]/app-confirmation/div/div/div/div/div[2]/div[2]/div/button[2]/span[1]")).click();
-	Thread.sleep(1000);
+	Thread.sleep(3000);
 		
 	System.out.println("Department deleted sucessfully ");
 	test.pass("Chrome Browser opened");
@@ -166,17 +167,14 @@ public class AddOffice
 	// test with snapshot
 	test.addScreenCaptureFromPath("screenshot.png");
 
-	}
-	
-	
+	}  
 	
 	@AfterSuite
 	public void Teardown()
 
 	{ extent.flush();
-	   // d.close();
-	
-	
+	   d.close();
 	}	
 	
 }
+
